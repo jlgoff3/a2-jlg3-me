@@ -3,7 +3,7 @@
         <div class="flex-none w-12 min-h-full">
             <ul class="flex flex-col min-h-full">
                 <li>
-                    <button @click="openStandardId = currentStandard"
+                    <button @click="openStandardId = currentStandardId"
                         class="flex-end w-full rounded-l-lg px-2 py-3 m-0 border border-gray-300 cursor-pointer font-bold underline bg-gray-300 text-gray-900">
                         <img src=" /home-icon.svg" alt="Home" width="24" height="24" />
                     </button>
@@ -94,7 +94,7 @@ const assignments = ref([]);
 const fullStandards = computed(getAllFullStandards);
 const openStandardId = ref(0);
 const openStandard = computed(() => getFullStandard(openStandardId.value));
-const currentStandard = computed(() => {
+const currentStandardId = computed(() => {
     const today = new Date();
     // Find first standard that has today or a future date
     const currentStandard = fullStandards.value.find((s) => {
@@ -256,7 +256,7 @@ if (standardsSheet && pacingSheet) {
                     });
                     parsedData.shift();
                     parsedData.forEach(addDateRow);
-                    openStandardId.value = standards.value.length > 0 ? standards.value[0].id : 0;
+                    openStandardId.value = currentStandardId.value;
                 });
         });
 }
