@@ -4,7 +4,7 @@
             <ul class="flex flex-col min-h-full">
                 <li
                     class="flex-end w-full rounded-l-lg px-2 py-3 m-0 border border-gray-300 cursor-pointer font-bold underline bg-gray-300 text-gray-900">
-                    <NuxtImg src="/home-icon.svg" alt="Home" width="24" height="24" />
+                    <img src="/home-icon.svg" alt="Home" width="24" height="24" />
                 </li>
                 <li v-for="standard in fullStandards" :key="standard.id">
                     <button v-if="standard.value < openStandard.value" @click="openStandardId = standard.id" :class="'w-full rounded-l-lg px-2 py-3 m-0 border border-gray-300 cursor-pointer font-bold underline ' + colors[standard.value - 1 % colors.length]
