@@ -1,5 +1,5 @@
 <template>
-    <div v-if="openStandard" class="flex max-w-5xl max-h-full p-4 overflow-hidden">
+    <div v-if="openStandard" class="flex max-h-full p-4 overflow-hidden">
         <div class="flex-none w-12 min-h-full">
             <ul class="flex flex-col min-h-full">
                 <li>

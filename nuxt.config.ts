@@ -3,6 +3,11 @@ export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "@nuxt/image"],
+  app: {
+    head: {
+      title: "Algebra 2 MGLVA",
+    },
+  },
   components: {
     global: true,
     dirs: ["~/components"],
