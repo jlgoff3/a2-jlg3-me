@@ -14,10 +14,10 @@ jobs:
         node-version: [25.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout
 
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node
         with:
           node-version: ${{ matrix.node-version }}
 
@@ -40,7 +40,7 @@ jobs:
             .
 
       - name: Upload artifact
-        uses: actions/upload-artifact@main
+        uses: actions/upload-pages-artifact
         with:
           name: github-pages
           path: ${{ runner.temp }}/artifact.tar
@@ -62,4 +62,4 @@ jobs:
     steps:
       - name: Deploy to Github Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages
