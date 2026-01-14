@@ -1,10 +1,13 @@
 <template>
-    <div v-if="openStandard" class="flex max-w-full max-h-full p-4 overflow-hidden">
+    <div v-if="openStandard" class="flex max-w-5xl max-h-full p-4 overflow-hidden">
         <div class="flex-none w-12 min-h-full">
             <ul class="flex flex-col min-h-full">
-                <li
-                    class="flex-end w-full rounded-l-lg px-2 py-3 m-0 border border-gray-300 cursor-pointer font-bold underline bg-gray-300 text-gray-900">
-                    <img src="/home-icon.svg" alt="Home" width="24" height="24" />
+                <li>
+                    <button @click="openStandardId = currentStandard"
+                        class="flex-end w-full rounded-l-lg px-2 py-3 m-0 border border-gray-300 cursor-pointer font-bold underline bg-gray-300 text-gray-900">
+                        <img src=" /home-icon.svg" alt="Home" width="24" height="24" />
+                    </button>
+
                 </li>
                 <li v-for="standard in fullStandards" :key="standard.id">
                     <button v-if="standard.value < openStandard.value" @click="openStandardId = standard.id" :class="'w-full rounded-l-lg px-2 py-3 m-0 border border-gray-300 cursor-pointer font-bold underline ' + colors[standard.value - 1 % colors.length]
@@ -91,6 +94,19 @@ const assignments = ref([]);
 const fullStandards = computed(getAllFullStandards);
 const openStandardId = ref(0);
 const openStandard = computed(() => getFullStandard(openStandardId.value));
+const currentStandard = computed(() => {
+    const today = new Date();
+    // Find first standard that has today or a future date
+    const currentStandard = fullStandards.value.find((s) => {
+        const standardDates = s.dates
+            .map((d) => new Date(d.text))
+            .filter((d) => !isNaN(d));
+        if (standardDates.length === 0) return false;
+        const lastDate = standardDates[standardDates.length - 1];
+        return today <= lastDate;
+    });
+    return currentStandard?.id ?? (standards.value.length > 0 ? standards.value[standards.value.length - 1].id : 0);
+})
 
 function getFullStandard(id) {
     const standard = getItem(id, standards);
