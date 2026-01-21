@@ -4,7 +4,9 @@
             <h1 class="text-xl font-bold">Algebra 2</h1>
             <nav class="h-full">
                 <ul class="flex space-x-4 h-full">
-                    <li><a href="/" class="text-gray-700 hover:text-blue-500">Home</a></li>
+                    <li>
+                        <NuxtLink to="/" class="text-gray-700 hover:text-blue-500">Home</NuxtLink>
+                    </li>
                     <li class="relative inline-block group h-full">
                         <a href="#" class="text-gray-700 hover:text-blue-500">Notebooks</a>
                         <ul class="hidden absolute left-0 min-w-36 group-hover:block bg-white shadow-lg">
@@ -24,6 +26,9 @@
                                 </NuxtLink>
                             </li>
                         </ul>
+                    </li>
+                    <li>
+                        <NuxtLink to="/resources" class="text-gray-700 hover:text-blue-500">Resources</NuxtLink>
                     </li>
                 </ul>
             </nav>
