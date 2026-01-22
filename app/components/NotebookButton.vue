@@ -9,9 +9,13 @@
     </span>
 </template>
 
-<script setup lang="ts">
-const buttonClass = "inline-flex items-center justify-center mx-1 text-xs md:px-2 md:py-1 xl:px-4 xl:py-2 ";
-defineProps<{
-    to: string
-}>()
+<script setup>
+const buttonClass = "inline-flex items-center justify-center mx-1 text-xs md:px-2 md:py-0.5 xl:px-4 xl:py-1";
+defineProps({
+    to: {
+        type: String,
+        required: false,
+        default: null
+    }
+})
 </script>

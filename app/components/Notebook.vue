@@ -116,7 +116,7 @@ function getFullStandard(id) {
         .map((d) => ({
             ...d,
             event: getItem(d.event_id, events),
-            assignment: assignments.value.find((a) => a.date_id == d.id),
+            assignments: assignments.value.filter((a) => a.date_id == d.id),
         })).reduce((acc, date) => {
             if (acc.length === 0 || date.cc_session) {
                 acc.push(date);
@@ -170,9 +170,7 @@ function findOrCreateDate(text, params) {
     return id;
 }
 
-function findOrCreateAssignment(text, params) {
-    const assignment = assignments.value.find((a) => a.text == text) ?? null;
-    if (assignment) return assignment.id;
+function createAssignment(text, params) {
     const id = uuid();
     assignments.value.push({
         ...params,
@@ -190,18 +188,22 @@ function addDateRow(row, i) {
         cc_sessionText,
         assignment,
         goff_link,
-        goff_work_link,
         vetter_link,
-        vetter_work_link,
+        assignment_2,
+        goff_link_2,
+        vetter_link_2,
         recording_link,
+        comment
     ] = row;
 
     // Find or Create Standard
     if (!standard_value) return;
     const standard_id = standards.value.find((s) => s.value == standard_value)?.id;
+
     // Find or Create Event
     if (!event) return;
     const event_id = findOrCreateEvent(event, { standard_id });
+
     // Create Date
     if (!date) return;
     const cc_session = !cc_sessionText?.includes("X");
@@ -211,15 +213,22 @@ function addDateRow(row, i) {
         recording_link,
         cc_session
     });
+
     // Create Assignment
-    if (!assignment) return;
-    findOrCreateAssignment(assignment, {
-        date_id,
-        goff_link,
-        goff_work_link,
-        vetter_link,
-        vetter_work_link,
-    });
+    if (assignment) {
+        const assignment_id = createAssignment(assignment, {
+            date_id,
+            goff_link,
+            vetter_link,
+        });
+    };
+    if (assignment_2) {
+        const assignment_2_id = createAssignment(assignment_2, {
+            date_id,
+            goff_link: goff_link_2,
+            vetter_link: vetter_link_2,
+        });
+    }
 }
 
 function createStandard(standardRow) {

@@ -1,6 +1,6 @@
 <template>
     <div class="grid grid-cols-3 items-center my-1">
-        <NotebookText :level="6" class="pb-1 font-bold" :class="isTest ? 'col-span-3' : 'col-span-2'">{{
+        <NotebookText :level="6" class="pb-1 font-semibold" :class="isTest ? 'col-span-3' : 'col-span-2'">{{
             assignment?.text }}
         </NotebookText>
         <div v-if="isTest" class="col-span-3 grid grid-cols-2">

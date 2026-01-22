@@ -25,7 +25,7 @@ const responsiveSizes = computed(() => {
         3: 'text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold',
         4: 'text-base sm:text-lg md:text-xl lg:text-2xl font-bold',
         5: 'text-xs sm:text-sm md:text-base lg:text-lg',
-        6: 'text-xs lg:text-base'
+        6: 'text-xs lg:text-sm'
     }
     return props.level ? sizes[props.level] : textBaseClass
 })

@@ -11,7 +11,8 @@
                 Recording
             </NotebookButton>
         </div>
-        <NotebookAssignment v-if="date.assignment" :assignment="date.assignment" class="col-span-3" />
+        <NotebookAssignment v-for="assignment in date.assignments" :key="assignment.id" :assignment="assignment"
+            class="col-span-3" />
     </div>
 </template>
 <script setup>
@@ -29,4 +30,5 @@ const props = defineProps({
     },
 });
 const { date, color } = toRefs(props);
+console.log(date.value)
 </script>
