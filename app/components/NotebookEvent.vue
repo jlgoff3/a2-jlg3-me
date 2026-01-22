@@ -30,5 +30,4 @@ const props = defineProps({
     },
 });
 const { date, color } = toRefs(props);
-console.log(date.value)
 </script>
