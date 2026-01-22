@@ -2,7 +2,15 @@
     <article class="min-h-screenpy-12 px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mx-auto">
             <h1 class="text-4xl font-bold text-gray-900 mb-8">Class Resources</h1>
-
+            <div class="mb-8 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                <h2 class="text-lg font-semibold text-gray-900 mb-2">Class Cutoff Dates</h2>
+                <p class="text-gray-700 mb-3">Cutoff dates only close choice boards and practice assignments.</p>
+                <ul class="text-gray-700 space-y-1">
+                    <li><strong>3/4</strong> - Standards 1-3</li>
+                    <li><strong>4/22</strong> - Standards 4-6</li>
+                    <li><strong>5/31</strong> - Standards 7-10</li>
+                </ul>
+            </div>
             <div class="space-y-4">
                 <NuxtLink
                     to="https://docs.google.com/presentation/d/e/2PACX-1vTLZF8Sr7NsnO_mTEjSKXGMRDlXzgsRzIpn_EgJU1_pk86EQZD4RLJg7f41uSTuXJwUub1BnrOmXNhV/pub?start=false&loop=true&delayms=3000#slide=id.g320a9024267_0_5529"
