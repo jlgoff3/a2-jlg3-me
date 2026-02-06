@@ -12,7 +12,7 @@
             </NotebookButton>
         </div>
         <NotebookAssignment v-for="assignment in date.assignments" :key="assignment.id" :assignment="assignment"
-            class="col-span-3" />
+            :multiclass class="col-span-3" />
     </div>
 </template>
 <script setup>
@@ -28,6 +28,10 @@ const props = defineProps({
         required: false,
         default: "bg-gray-200",
     },
+    multiclass: {
+        type: Boolean,
+        default: false,
+    }
 });
-const { date, color } = toRefs(props);
+const { date, color, multiclass } = toRefs(props);
 </script>

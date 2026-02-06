@@ -22,7 +22,7 @@
             <div class="flex-1 pr-4">
                 <NotebookText :level="5" class="font-bold text-center mb-2 lg:mb-4">{{ openStandard?.text }}
                 </NotebookText>
-                <NotebookEvent v-for="(date, i) in openStandard?.dates" :key="date.id" :date="date"
+                <NotebookEvent v-for="(date, i) in openStandard?.dates" :key="date.id" :date="date" :multiclass
                     :color="colors[i % colors.length]" />
                 <hr />
             </div>
@@ -77,6 +77,10 @@ const props = defineProps({
     standardsSheet: {
         type: String,
         required: true
+    },
+    multiclass: {
+        type: Boolean,
+        default: false,
     }
 });
 
@@ -181,8 +185,7 @@ function createAssignment(text, params) {
 }
 
 function addDateRow(row, i) {
-    const [
-        date,
+    let date,
         standard_value,
         event,
         cc_sessionText,
@@ -194,7 +197,36 @@ function addDateRow(row, i) {
         vetter_link_2,
         recording_link,
         comment
-    ] = row;
+    if (props.multiclass) {
+        ([
+            date,
+            standard_value,
+            event,
+            cc_sessionText,
+            assignment,
+            goff_link,
+            vetter_link,
+            assignment_2,
+            goff_link_2,
+            vetter_link_2,
+            recording_link,
+            comment
+        ] = row);
+    } else {
+        ([
+            date,
+            standard_value,
+            event,
+            cc_sessionText,
+            assignment,
+            goff_link,
+            assignment_2,
+            goff_link_2,
+            recording_link,
+            comment
+        ] = row);
+    }
+
 
     // Find or Create Standard
     if (!standard_value) return;

@@ -1,5 +1,5 @@
 <template>
-    <Notebook :pacing-sheet="pacingSheet" :standards-sheet="standardsSheet" />
+    <Notebook :pacing-sheet="pacingSheet" :standards-sheet="standardsSheet" multiclass />
 </template>
 
 <script setup>
