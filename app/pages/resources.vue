@@ -27,8 +27,7 @@
                     <p class="text-gray-600">How to do Choice Boards to earn an SBG 4</p>
                 </NuxtLink>
 
-                <NuxtLink
-                    to="https://docs.google.com/document/d/1wRc4YKacTIm4U5UPgnhhwWPgqawxylug6pVj5JiXKHU/edit?usp=sharing"
+                <NuxtLink to="https://canva.link/cwi6swv5azx9lbr"
                     class="block p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow border-l-4 border-green-500">
                     <h2 class="text-xl font-semibold text-gray-900 mb-2">Typing Tips</h2>
                     <p class="text-gray-600">Tips for typing answers correctly on computer-graded tests</p>
