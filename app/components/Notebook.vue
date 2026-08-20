@@ -1,5 +1,5 @@
 <template>
-    <div v-if="openStandard" class="flex max-h-full p-4 overflow-hidden">
+    <div v-if="isLoaded && openStandard" class="flex max-h-full p-4 overflow-hidden">
         <div class="flex-none w-12 min-h-full">
             <ul class="flex flex-col min-h-full">
                 <li>
@@ -61,6 +61,9 @@
             </ul>
         </div>
     </div>
+    <div v-else class="flex items-center justify-center min-h-96">
+        <p class="text-gray-500 text-lg">Loading notebook...</p>
+    </div>
 </template>
 
 <script setup>
@@ -98,6 +101,8 @@ const assignments = ref([]);
 const fullStandards = computed(getAllFullStandards);
 const openStandardId = ref(0);
 const openStandard = computed(() => getFullStandard(openStandardId.value));
+const isLoaded = ref(false);
+
 const currentStandardId = computed(() => {
     const today = new Date();
     // Find first standard that has today or a future date
@@ -298,6 +303,7 @@ if (standardsSheet && pacingSheet) {
                     parsedData.shift();
                     parsedData.forEach(addDateRow);
                     openStandardId.value = currentStandardId.value;
+                    isLoaded.value = true;
                 });
         });
 }

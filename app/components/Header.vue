@@ -10,19 +10,9 @@
                     <li class="relative inline-block group h-full">
                         <a href="#" class="text-gray-700 hover:text-blue-500">Notebooks</a>
                         <ul class="hidden absolute left-0 min-w-36 group-hover:block bg-white shadow-lg">
-                            <li>
-                                <NuxtLink to="/mth308b" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-                                    Algebra 2B
-                                </NuxtLink>
-                            </li>
-                            <li>
-                                <NuxtLink to="/mth308ad" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-                                    Algebra 2A CR
-                                </NuxtLink>
-                            </li>
-                            <li>
-                                <NuxtLink to="/mth308bd" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
-                                    Algebra 2B CR
+                            <li v-for="link in notebookLinks" :key="link.path">
+                                <NuxtLink :to="link.path" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">
+                                    {{ link.name }}
                                 </NuxtLink>
                             </li>
                         </ul>
@@ -40,6 +30,13 @@
 import { ref, onMounted } from 'vue';
 
 const isScrolled = ref(false);
+
+const notebookLinks = [
+    { name: 'Algebra 2A', path: '/mth308a' },
+    { name: 'Algebra 2B', path: '/mth308b' },
+    { name: 'Algebra 2A CR', path: '/mth308ad' },
+    { name: 'Algebra 2B CR', path: '/mth308bd' },
+];
 
 const handleScroll = () => {
     isScrolled.value = window.scrollY > 0;
