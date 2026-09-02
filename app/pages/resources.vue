@@ -40,7 +40,8 @@
                     <p class="text-gray-600">Rubric for test scoring</p>
                 </NuxtLink>
 
-                <NuxtLink to="#"
+                <NuxtLink
+                    to="https://docs.google.com/document/d/12zhZw3zqikMRYHgt1fOng_Cey6BzHLL1GJw9BgYcskk/edit?usp=sharing"
                     class="block p-4 bg-white rounded-lg shadow hover:shadow-md transition-shadow border-l-4 border-orange-500">
                     <h2 class="text-xl font-semibold text-gray-900 mb-2">Choice Board Rubric</h2>
                     <p class="text-gray-600">Rubric for Choice Board scoring</p>
