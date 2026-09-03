@@ -36,6 +36,7 @@ const notebookLinks = [
     { name: 'Algebra 2B', path: '/mth308b' },
     { name: 'Algebra 2A CR', path: '/mth308ad' },
     { name: 'Algebra 2B CR', path: '/mth308bd' },
+    { name: 'Algebra 2A Egan', path: '/mth308a-egan' },
 ];
 
 const handleScroll = () => {
