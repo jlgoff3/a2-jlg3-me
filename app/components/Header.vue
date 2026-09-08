@@ -33,10 +33,8 @@ const isScrolled = ref(false);
 
 const notebookLinks = [
     { name: 'Algebra 2A', path: '/mth308a' },
-    { name: 'Algebra 2B', path: '/mth308b' },
-    { name: 'Algebra 2A CR', path: '/mth308ad' },
-    { name: 'Algebra 2B CR', path: '/mth308bd' },
     { name: 'Algebra 2A Egan', path: '/mth308a-egan' },
+    { name: 'Algebra 2A Ostiguin-Xiao', path: '/mth308a-ostiguin-xiao' }
 ];
 
 const handleScroll = () => {
