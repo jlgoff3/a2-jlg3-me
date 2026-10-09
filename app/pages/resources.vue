@@ -55,7 +55,7 @@
 import { ref } from 'vue';
 
 const cutoffDates = ref([
-    { date: '10/14', standards: '1-3' },
+    { date: '10/21', standards: '1-3' },
     { date: '11/25', standards: '4-6' },
     { date: '12/13', standards: '7-8' },
 ]);
